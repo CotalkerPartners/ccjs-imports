@@ -1,6 +1,6 @@
 /* Arguments: axios, networkLogs [], errors []  */
 const handleError = (error) => {
-  const { response } = error
+  const { response, config } = error
   if (response.status === 404) {
     errors.push(`NOT FOUND ${config.url}`)
     return { error: null }
@@ -20,7 +20,9 @@ const handleResult = (result, errors) => {
 }
 
 const _repeatableCall = async (path, method, data) => {
-  networkLogs.push(config)
+  networkLogs.push({
+    path, method, data
+  })
   const headers = { admin: 'true' }
   if (method === 'POST' || method === 'PATCH') {
     headers['Content-Type'] = 'application/json'
