@@ -1,4 +1,4 @@
-/* Arguments: axios, networkLogs [], errors []  */
+/* Arguments: axios, env, networkLogs [], errors []  */
 const handleError = (error) => {
   const { response, config } = error
   if (response.status === 404) {

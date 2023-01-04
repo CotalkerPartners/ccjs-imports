@@ -1,4 +1,4 @@
-/* Arguments: baseAPI */
+/* Arguments: baseAPI, errors */
 const { _repeatableCall, handleError, handleResult } = baseAPI
 return {
   getQuery: async (query) => {
