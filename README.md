@@ -9,6 +9,9 @@ const cotimporter = async (mod, args) => {
   return (new Function(...args,text))
 }
 const errors = [], networkLogs = []
-const baseAPI = (await cotimporter('BASE_API',['axios','networkLogs','errors']))(axios, networkLogs, errors)
+const baseAPI = (await cotimporter('BASE_API',['axios','env','networkLogs','errors']))(axios, env, networkLogs, errors)
 const COTPropertyAPI = (await cotimporter('COTProperty',['baseAPI']))(baseAPI)
+
+const banana = await COTPropertyAPI.getByCode('banana')
+return { banana }
 ```
