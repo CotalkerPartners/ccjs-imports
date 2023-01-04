@@ -11,7 +11,7 @@ const handleError = (error) => {
   return { error: response.data }
 }
 
-const handleResult = (result, errors) => {
+const handleResult = (result) => {
   if (result.error) {
     errors.push(result.error)
     return null
